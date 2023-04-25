@@ -6,7 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 
+import static org.springframework.http.HttpMethod.valueOf;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -29,5 +32,17 @@ public abstract class ApplicationTestCase {
                 .perform(get(endpoint))
                 .andExpect(status().is(expectedStatusCode))
                 .andExpect(response);
+    }
+
+    protected void assertRequestWithBody(
+            String method,
+            String endpoint,
+            String body,
+            Integer expectedStatusCode
+    ) throws Exception {
+        mockMvc
+                .perform(request(valueOf(method), endpoint).content(body).contentType(APPLICATION_JSON))
+                .andExpect(status().is(expectedStatusCode))
+                .andExpect(content().string(""));
     }
 }
