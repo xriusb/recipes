@@ -1,4 +1,4 @@
-package com.xrius.recipes.controller.recipe;
+package com.xrius.recipes.recipe;
 
 import com.xrius.recipes.ApplicationTestCase;
 import org.junit.jupiter.api.Test;

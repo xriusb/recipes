@@ -1,4 +1,4 @@
-package com.xrius.recipes.controller.recipe.domain;
+package com.xrius.recipes.recipe.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package com.xrius.recipes.controller.recipe;
+package com.xrius.recipes.recipe.infrastructure;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

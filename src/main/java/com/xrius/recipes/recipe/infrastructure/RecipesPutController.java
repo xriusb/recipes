@@ -1,6 +1,6 @@
-package com.xrius.recipes.controller.recipe;
+package com.xrius.recipes.recipe.infrastructure;
 
-import com.xrius.recipes.controller.recipe.application.RecipeCreator;
+import com.xrius.recipes.recipe.application.RecipeCreator;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
