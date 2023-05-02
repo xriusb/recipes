@@ -14,14 +14,16 @@ final class RecipeCreatorShould {
     void save_a_valid_recipe(){
 
         String id = "id";
+        String name = "name";
         List<String > ingredients = List.of("pepper", "salt");
-        Recipe recipe = new Recipe(id, ingredients);
+        Recipe recipe = new Recipe(id, name, ingredients);
 
         RecipeRepository recipeRepository = mock(RecipeRepository.class);
 
         RecipeCreator recipeCreator = new RecipeCreator(recipeRepository);
+        CreateRecipeRequest createRecipeRequest = new CreateRecipeRequest(id, name, ingredients);
 
-        recipeCreator.execute(id, ingredients);
+        recipeCreator.execute(createRecipeRequest);
 
         verify(recipeRepository).save(recipe);
     }

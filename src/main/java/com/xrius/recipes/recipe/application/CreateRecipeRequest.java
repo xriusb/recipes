@@ -1,14 +1,15 @@
-package com.xrius.recipes.recipe.domain;
+package com.xrius.recipes.recipe.application;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 import java.util.List;
 
 @AllArgsConstructor
-@Data
-public class Recipe {
+@Getter
+public final class CreateRecipeRequest {
     private String id;
     private String name;
     private List<String> ingredients;
+
 }

@@ -10,7 +10,8 @@ import java.util.Optional;
 @Service
 public final class InMemoryRecipeRepository implements RecipeRepository {
 
-    private HashMap<String, Recipe> recipes = new HashMap<>();
+    private final HashMap<String, Recipe> recipes = new HashMap<>();
+
     @Override
     public void save(Recipe recipe) {
         this.recipes.put(recipe.getId(), recipe);

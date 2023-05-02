@@ -15,14 +15,14 @@ class InMemoryRecipeRepositoryTest {
     void save_a_valid_recipe() {
         InMemoryRecipeRepository inMemoryRecipeRepository = new InMemoryRecipeRepository();
 
-        inMemoryRecipeRepository.save(new Recipe("some id", List.of("ingredient 1", "ingredient 2")));
+        inMemoryRecipeRepository.save(new Recipe("some id", "name", List.of("ingredient 1", "ingredient 2")));
     }
 
     @Test
     void search_an_existing_recipe() {
         InMemoryRecipeRepository inMemoryRecipeRepository = new InMemoryRecipeRepository();
 
-        Recipe recipe = new Recipe("some id", List.of("ingredient 1", "ingredient 2"));
+        Recipe recipe = new Recipe("some id", "name",   List.of("ingredient 1", "ingredient 2"));
 
         inMemoryRecipeRepository.save(recipe);
 

@@ -1,5 +1,6 @@
 package com.xrius.recipes.recipe.infrastructure;
 
+import com.xrius.recipes.recipe.application.CreateRecipeRequest;
 import com.xrius.recipes.recipe.application.RecipeCreator;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +27,8 @@ public final class RecipesPutController {
             @PathVariable String recipeId,
             @RequestBody Request request
     ) {
+
+        this.recipeCreator.execute(new CreateRecipeRequest(recipeId, request.getName(), request.getIngredients()));
         return ResponseEntity.status(CREATED).build();
     }
 }
