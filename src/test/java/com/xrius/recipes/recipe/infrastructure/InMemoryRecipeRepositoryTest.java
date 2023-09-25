@@ -2,16 +2,12 @@ package com.xrius.recipes.recipe.infrastructure;
 
 import com.xrius.recipes.recipe.domain.Recipe;
 import com.xrius.recipes.recipe.domain.RecipeId;
-import com.xrius.recipes.recipe.domain.RecipeIngredients;
-import com.xrius.recipes.recipe.domain.RecipeName;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-import java.util.Optional;
-
 import static java.util.UUID.randomUUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 class InMemoryRecipeRepositoryTest {
 
@@ -21,8 +17,8 @@ class InMemoryRecipeRepositoryTest {
 
         inMemoryRecipeRepository.save(new Recipe(
                 new RecipeId(randomUUID().toString()),
-                new RecipeName("name"),
-                new RecipeIngredients(List.of("ingredient 1", "ingredient 2"))
+                RecipeNameMother.random(),
+                RecipeIngredientsMother.random()
         ));
     }
 
@@ -32,8 +28,8 @@ class InMemoryRecipeRepositoryTest {
 
         Recipe recipe = new Recipe(
                 new RecipeId(randomUUID().toString()),
-                new RecipeName("name"),
-                new RecipeIngredients(List.of("ingredient 1", "ingredient 2"))
+                RecipeNameMother.random(),
+                RecipeIngredientsMother.random()
         );
 
         inMemoryRecipeRepository.save(recipe);

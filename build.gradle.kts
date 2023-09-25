@@ -25,6 +25,8 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 
+	implementation("org.apache.commons:commons-lang3:3.12.0")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")

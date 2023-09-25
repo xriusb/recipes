@@ -15,7 +15,6 @@ public final class InMemoryRecipeRepository implements RecipeRepository {
     @Override
     public void save(Recipe recipe) {
         this.recipes.put(recipe.getId().value(), recipe);
-
     }
 
     @Override

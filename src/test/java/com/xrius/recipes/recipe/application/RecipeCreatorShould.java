@@ -2,16 +2,15 @@ package com.xrius.recipes.recipe.application;
 
 import com.xrius.recipes.recipe.domain.Recipe;
 import com.xrius.recipes.recipe.domain.RecipeId;
-import com.xrius.recipes.recipe.domain.RecipeIngredients;
-import com.xrius.recipes.recipe.domain.RecipeName;
 import com.xrius.recipes.recipe.domain.RecipeRepository;
+import com.xrius.recipes.recipe.infrastructure.RecipeIngredientsMother;
+import com.xrius.recipes.recipe.infrastructure.RecipeNameMother;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 import java.util.List;
 import java.util.UUID;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 final class RecipeCreatorShould {
     @Test
@@ -20,7 +19,10 @@ final class RecipeCreatorShould {
         String id = UUID.randomUUID().toString();
         String name = "name";
         List<String > ingredients = List.of("pepper", "salt");
-        Recipe recipe = new Recipe(new RecipeId(id), new RecipeName(name), new RecipeIngredients(ingredients));
+        Recipe recipe = new Recipe(
+                new RecipeId(id),
+                RecipeNameMother.create(name),
+                RecipeIngredientsMother.create(ingredients));
 
         RecipeRepository recipeRepository = mock(RecipeRepository.class);
 
